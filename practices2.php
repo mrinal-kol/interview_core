@@ -4,9 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DB Transaction Summary — HTML UI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href='css/style.css' rel="stylesheet">
   <style>
     :root{--bg:#f6f8fb;--card:#ffffff;--accent:#0f766e;--muted:#6b7280}
-    body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); padding:32px; color:#0f172a}
+    body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:#0f172a}
     .card{background:var(--card); border-radius:12px; box-shadow:0 6px 20px rgba(15,23,42,0.06); padding:20px; max-width:900px; margin:0 auto}
     h1{font-size:20px; margin:0 0 12px}
     p.lead{margin:0 0 18px; color:var(--muted); font-size:14px}
@@ -23,6 +25,10 @@
   </style>
 </head>
 <body>
+  <?php
+    include('menu.php');
+    ?>
+    <div  class="bg-light text-dark inner" >
   <div class="card">
     <h1>DB Transaction Summary — Quick Reference</h1>
     <p class="lead">Copy-ready table showing how to start, commit and rollback transactions in different PHP frameworks / libraries.</p>
@@ -74,7 +80,7 @@
 
     <p class="note">Tip: Use the table inside your docs or admin UI. The <code>CodeIgniter</code> row works for both CI3 and CI4 with slightly different method names in CI4 if using the database instance directly.</p>
   </div>
-
+</div>
   <script>
     function copyToClipboard(text){
       navigator.clipboard.writeText(text).then(()=>{

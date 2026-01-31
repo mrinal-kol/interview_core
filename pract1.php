@@ -3,14 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>MySQL + Laravel Cheat Sheet</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href='css/style.css' rel="stylesheet">
+ 
 
 <style>
-body{
-    font-family: Arial, sans-serif;
-    background:#f4f6f8;
-    margin:0;
-    padding:20px;
-}
+
 .container{
     max-width:1100px;
     margin:auto;
@@ -61,6 +59,10 @@ th{
 </head>
 
 <body>
+  <?php
+    include('menu.php');
+    ?>
+<div  class="bg-light text-dark inner" >
 
 <div class="container">
 
@@ -184,6 +186,6 @@ th{
   </section>
 
 </div>
-
+</div>
 </body>
 </html>

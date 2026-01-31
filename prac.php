@@ -14,94 +14,16 @@ ini_set('error_log', __DIR__ . '/error_log.txt');
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daily Practice Work</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #f8f9fa;
-    }
-    .inner
-    {
-      padding-left: 30px;
-    }
-    h4{
-        background-color: yellow;
-        display: table;
-        /* width: 100%;*/
-        table-layout: fixed;
-        
-        /* instead of padding-left */
-        text-indent: 0;  /* ensures left edge */
-        
-        margin: 0;       /* remove default margins */
-    }
-
-    
-
-    .navbar-brand {
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: #ffc107 !important;
-    }
-
-    .nav-link {
-      color: #ffffff !important;
-      transition: all 0.3s ease;
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-    }
-
-    .nav-link:hover {
-      color: #ffc107 !important;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 0.25rem;
-    }
-
-    .navbar {
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-
-    .container-main {
-      padding: 2rem;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 2rem;
-      color: #343a40;
-    }
-    
-  </style>
+  <link href='css/style.css' rel="stylesheet">
   </head>
 
-<body >
+<body>
+   <?php
+    include('menu.php');
+    ?>
   
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">My PHP Growth Skill</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
-        aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    
-      <div class="collapse navbar-collapse" id="navbarMenu">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-          
-          <li class="nav-item"><a class="nav-link" href="mysql_que.php">Mysql Example</a></li>
-          <li class="nav-item"><a class="nav-link" href="prac.php">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="prac2.php">Page1</a></li>
-          <li class="nav-item"><a class="nav-link" href="prac3.php">Page2</a></li>
-          <li class="nav-item"><a class="nav-link" href="pract1.php">Page3</a></li>
-          <li class="nav-item"><a class="nav-link" href="pract2.php">Page4</a></li>
-          <li class="nav-item"><a class="nav-link" href="pract3.php">Page5</a></li>
-          <li class="nav-item"><a class="nav-link" href="practices.php">practices</a></li>
-          <li class="nav-item"><a class="nav-link" href="practices2.php">practices2</a></li>
-
-        </ul>
-      </div>
-    </div>
-  </nav>
 <div  class="bg-light text-dark inner" >
-
+   
     <h4> PHP Interview Question Answer </h4>
         <?php
         echo "<pre>";

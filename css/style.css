@@ -1,0 +1,53 @@
+ body {
+      background-color: #f8f9fa;
+    }
+    .inner
+    {
+      padding-left: 30px;
+    }
+    h4{
+        background-color: yellow;
+        display: table;
+        /* width: 100%;*/
+        table-layout: fixed;
+        
+        /* instead of padding-left */
+        text-indent: 0;  /* ensures left edge */
+        
+        margin: 0;       /* remove default margins */
+    }
+
+    
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #ffc107 !important;
+    }
+
+    .nav-link {
+      color: #ffffff !important;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+    }
+
+    .nav-link:hover {
+      color: #ffc107 !important;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 0.25rem;
+    }
+
+    .navbar {
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .container-main {
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #343a40;
+    }

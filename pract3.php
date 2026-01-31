@@ -13,39 +13,14 @@ ini_set('error_log', __DIR__ . '/error_log.txt');
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daily Practice Work</title>
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
-<style>
-    body{
-        margin:0;
-        padding:20px;
-        font-family: Arial, sans-serif;
-        background:#f4f6f9;
-    }
-    .container{
-        max-width:1200px;
-        margin:auto;
-    }
-    .box{
-        background:#fff;
-        border-radius:10px;
-        padding:20px;
-        box-shadow:0 8px 20px rgba(0,0,0,0.08);
-        line-height:1.7;
-        word-break:break-word;
-    }
-    pre{
-        background:#f1f5f9;
-        padding:12px;
-        border-radius:6px;
-        overflow:auto;
-    }
-</style>
-</head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href='css/style.css' rel="stylesheet">
+  </head>
 <body>
-
+  <?php
+    include('menu.php');
+    ?>
+<div  class="bg-light text-dark inner" >
 <div class="container">
 <div class="box">
 
@@ -692,6 +667,8 @@ if(isset($_POST['save']))
       </div>
     </div>
   </div>
+
+</div>
 </body>
 </html>
 <script

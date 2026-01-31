@@ -1,5 +1,17 @@
-<html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DB Transaction Summary — HTML UI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href='css/style.css' rel="stylesheet">
+  </head>
 <body>
+  <?php
+    include('menu.php');
+    ?>
+<div  class="bg-light text-dark inner" >
    <section class="ibpage__articles">
       <article>
         <p><strong>Introduction to MySQL:</strong></p><p>MySQL is an open-source relational database management system (RDBMS). It runs on the web as well as on the server. MySQL is fast, reliable, and easy to use. It is open-source software. MySQL uses standard <a href="https://www.interviewbit.com/sql-interview-questions/" rel="">SQL</a> and compiles on a number of platforms. It is a multithreaded, multi-user SQL database management system.</p><p>The data in a <a href="https://www.interviewbit.com/blog/mysql-commands/" target="_blank" rel="">MySQL</a> database is stored in the form of tables. A table is a collection of related data, and it consists of columns and rows.</p><p><a href="https://www.interviewbit.com/blog/mysql-features/" target="_blank" rel="">MySQL </a>has stand-alone clients that allow users to interact directly with a MySQL database using SQL, but more often MySQL is used with other programs to implement applications that need relational database capability.</p><p>MySQL has more than 11 million installations.</p>
@@ -1827,5 +1839,7 @@ year CHAR(4)) ENGINE InnoDB;</code></pre>
     </div>
 
   </section>
+
+</div>
 </body>
 </html>
