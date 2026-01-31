@@ -76,7 +76,7 @@ ini_set('error_log', __DIR__ . '/error_log.txt');
   
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">My PHP Pages</a>
+      <a class="navbar-brand" href="#">My PHP Growth Skill</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
         aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
