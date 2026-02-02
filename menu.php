@@ -15,7 +15,7 @@
 
           
           <li class="nav-item"><a class="nav-link" href="mysql_que.php">Mysql Example</a></li>
-          <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="prac.php">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="prac2.php">Page1</a></li>
           <li class="nav-item"><a class="nav-link" href="prac3.php">Page2</a></li>
           <li class="nav-item"><a class="nav-link" href="pract1.php">Page3</a></li>
