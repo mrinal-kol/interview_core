@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
 body{
@@ -61,6 +62,87 @@ a{color:#0d6efd;text-decoration:none;}
 @media(max-width:600px){
     h1{font-size:28px;}
 }
+
+/*------------------------*/
+/* ===== Social Media / Contact Section ===== */
+/* ===== Social Media Section ===== */
+.social_media{
+    background:#fff;
+    margin-bottom:0px;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.social_media h2{
+    color:#0d6efd;
+    border-bottom:2px solid #ddd;
+    padding-bottom:8px;
+    margin-bottom:25px;
+}
+
+.social_media .connect-wrap{
+    display:flex;
+    gap:40px;
+}
+
+.social_media .connect-left,
+.social_media .connect-right{
+    flex:1;
+}
+
+.social_media .connect-left{
+    border-right:2px solid #e5e7eb;
+    padding-right:30px;
+}
+
+.social_media .connect-item{
+    margin-bottom:18px;
+}
+
+.social_media .connect-item span{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:13px;
+    color:#6b7280;
+    margin-bottom:4px;
+}
+
+.social_media .connect-item img{
+    width:22px;   /* bigger logo */
+    height:22px;
+    object-fit:contain;
+}
+
+.social_media .connect-item a,
+.social_media .connect-item strong{
+    font-size:16px;
+    font-weight:500;
+    color:#111827;
+    text-decoration:none;
+}
+
+.social_media .connect-item a:hover{
+    text-decoration:underline;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .social_media .connect-wrap{
+        flex-direction:column;
+    }
+    .social_media .connect-left{
+        border-right:none;
+        padding-right:0;
+        border-bottom:2px solid #e5e7eb;
+        padding-bottom:20px;
+        margin-bottom:20px;
+    }
+}
+
+
+
 </style>
 </head>
 
@@ -260,8 +342,103 @@ Facebook login integration project
 
 </div>
 
+
+<section class="social_media">
+<h2>Contact & Online Presence</h2>
+
+<div class="connect-wrap">
+
+    <div class="connect-left">
+
+        <div class="connect-item">
+            <span>
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+                Email
+            </span>
+            <a href="mailto:mrinal.bangalore@gmail.com">
+                mrinal.bangalore@gmail.com
+            </a>
+        </div>
+
+        <div class="connect-item">
+            <span>
+                <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone">
+                Phone
+            </span>
+            <a href="tel:8951167690">
+                +91 89511 67690
+            </a>
+        </div>
+
+        <div class="connect-item">
+            <span>
+                <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Location">
+                Location
+            </span>
+            <strong>Kolkata, India</strong>
+        </div>
+
+        <div class="connect-item">
+            <span>
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135810.png" alt="Availability">
+                Availability
+            </span>
+            <strong>Immediate Joiner</strong>
+        </div>
+
+    </div>
+
+    <div class="connect-right">
+
+        <div class="connect-item">
+            <span>
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+                LinkedIn
+            </span>
+            <a href="https://www.linkedin.com/in/mrinal-kanti-mandal-5b3319383/" target="_blank">
+                linkedin.com/in/Mrinal
+            </a>
+        </div>
+
+        <div class="connect-item">
+            <span>
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub">
+                GitHub
+            </span>
+            <a href="https://github.com/mrinal-kol" target="_blank">
+                github.com/Mrinal
+            </a>
+        </div>
+
+        <div class="connect-item">
+            <span>
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+                Facebook
+            </span>
+            <a href="https://facebook.com/" target="_blank">
+                facebook.com/mrinal
+            </a>
+        </div>
+
+        <div class="connect-item">
+            <span>
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174869.png" alt="Skype">
+                Skype
+            </span>
+            <strong>mrinal.bangalore</strong>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+
+
+
+
 <footer>
-© 2026 Chandan Roy | Senior Web Application Developer
+© 2026 Mrinal Kanti Mandal | Senior Web Application Developer
 </footer>
 
 </body>
