@@ -1,0 +1,91 @@
+# ================================
+# OS / System files
+# ================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ================================
+# Editor / IDE files
+# ================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+*.tmp
+*.log
+
+# ================================
+# Logs (VERY IMPORTANT)
+# ================================
+error_log.txt
+error_log
+logs/
+*.log
+
+# ================================
+# PHP / Composer
+# ================================
+vendor/
+composer.phar
+
+# ================================
+# Laravel specific
+# ================================
+.env
+.env.*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/logs/*
+bootstrap/cache/*
+
+# ================================
+# CodeIgniter specific
+# ================================
+application/logs/*
+writable/logs/*
+writable/cache/*
+writable/session/*
+writable/uploads/*
+
+# ================================
+# Node / Frontend
+# ================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ================================
+# Build / Cache / Temp
+# ================================
+cache/
+tmp/
+temp/
+
+# ================================
+# XAMPP / Local server junk
+# ================================
+htdocs/.htaccess
+*.pid
+
+# ================================
+# Database dumps
+# ================================
+*.sql
+*.sqlite
+
+# ================================
+# Uploads (if not versioned)
+# ================================
+uploads/
+public/uploads/
+
+# ================================
+# Misc
+# ================================
+*.zip
+*.rar
+*.7z

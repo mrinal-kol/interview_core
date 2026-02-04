@@ -77,7 +77,7 @@ ini_set('error_log', __DIR__ . '/error_log.txt');
         echo "<br>";
         $ol = new koll();
         echo $ol->town();
-        echo '<br>----------Another Example-------------'.'<br>';
+        echo '<br>----------Another Example 1-------------'.'<br>';
         class A {
               private function test() {
                   echo "A";
@@ -92,7 +92,7 @@ ini_set('error_log', __DIR__ . '/error_log.txt');
 
           $g = new B();
         echo $g->test();
-         echo '<br>-----------------------'.'<br>';
+         echo '<br>----------Another Example 2-------------'.'<br>';
         class Az {
               public static function who() {
                   echo "A";
@@ -105,11 +105,11 @@ ini_set('error_log', __DIR__ . '/error_log.txt');
 
           class Bz extends Az {
               public static function who() {
-                  echo "B";
+                  echo "Bt";
               }
           }
 
-          echo Az::test();
+          echo Az::who();
         echo '<br>-----------------------'.'<br>';
         //echo '<h4> PHP Interview Question Answer </h4> ';
         $r ="rahul";
