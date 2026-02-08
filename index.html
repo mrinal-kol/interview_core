@@ -501,14 +501,40 @@ Facebook login integration project
 © 2026 Mrinal Kanti Mandal | Senior Web Application Developer
 </footer>
 <script>
-fetch('https://api.countapi.xyz/hit/mrinal-kanti-mandal-resume/visits')
-  .then(res => res.json())
-  .then(data => {
-      console.log('Total Visitors:', data.value);
-  })
-  .catch(err => {
-      console.error('Visitor counter error:', err);
-  });
+(function () {
+    const namespace = "mrinal-kanti-mandal-resume";
+    const key = "visits";
+
+    const urls = [
+        `https://api.countapi.xyz/hit/${namespace}/${key}`,
+        `https://countapi.xyz/hit/${namespace}/${key}` // fallback
+    ];
+
+    function tryFetch(index) {
+        if (index >= urls.length) {
+            console.error("❌ Visitor counter failed on all endpoints");
+            return;
+        }
+
+        fetch(urls[index])
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response not ok");
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("✅ Total Visitors:", data.value);
+            })
+            .catch(error => {
+                console.warn(`⚠️ Failed endpoint: ${urls[index]}`);
+                tryFetch(index + 1); // try next endpoint
+            });
+    }
+
+    tryFetch(0);
+})();
 </script>
+
 </body>
 </html>
