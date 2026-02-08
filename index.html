@@ -500,25 +500,54 @@ Facebook login integration project
 <footer>
 © 2026 Mrinal Kanti Mandal | Senior Web Application Developer
 </footer>
-<script>
-(function () {
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc,
+    updateDoc,
+    increment
+  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-    const KEY = "interview_core_total_visits";
+  // 🔥 Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyARPZtdO2fe6PZeHr6ZLKSD1NY6hTjcPRU",
+    authDomain: "resume-visitor.firebaseapp.com",
+    projectId: "resume-visitor",
+    storageBucket: "resume-visitor.firebasestorage.app",
+    messagingSenderId: "905220069170",
+    appId: "1:905220069170:web:d5424b25821e1ef865692b"
+  };
 
-    let total = localStorage.getItem(KEY);
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
-    if (!total) {
-        total = 1;
-    } else {
-        total = parseInt(total, 10) + 1;
+  // Visitor counter reference
+  const counterRef = doc(db, "visits", "resume");
+
+  async function countVisitor() {
+    try {
+      const snap = await getDoc(counterRef);
+
+      if (!snap.exists()) {
+        await setDoc(counterRef, { total: 1 });
+        console.log("👀 Total Visitors:", 1);
+      } else {
+        await updateDoc(counterRef, { total: increment(1) });
+        const updatedSnap = await getDoc(counterRef);
+        console.log("👀 Total Visitors:", updatedSnap.data().total);
+      }
+    } catch (err) {
+      console.error("❌ Visitor counter error:", err);
     }
+  }
 
-    localStorage.setItem(KEY, total);
-
-    console.log("📊 Total Visits (this browser, all days):", total);
-
-})();
+  countVisitor();
 </script>
+
 
 
 </body>
