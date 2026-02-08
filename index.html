@@ -502,39 +502,24 @@ Facebook login integration project
 </footer>
 <script>
 (function () {
-    const namespace = "mrinal-kanti-mandal-resume";
-    const key = "visits";
 
-    const urls = [
-        `https://api.countapi.xyz/hit/${namespace}/${key}`,
-        `https://countapi.xyz/hit/${namespace}/${key}` // fallback
-    ];
+    const KEY = "interview_core_total_visits";
 
-    function tryFetch(index) {
-        if (index >= urls.length) {
-            console.error("❌ Visitor counter failed on all endpoints");
-            return;
-        }
+    let total = localStorage.getItem(KEY);
 
-        fetch(urls[index])
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Network response not ok");
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log("✅ Total Visitors:", data.value);
-            })
-            .catch(error => {
-                console.warn(`⚠️ Failed endpoint: ${urls[index]}`);
-                tryFetch(index + 1); // try next endpoint
-            });
+    if (!total) {
+        total = 1;
+    } else {
+        total = parseInt(total, 10) + 1;
     }
 
-    tryFetch(0);
+    localStorage.setItem(KEY, total);
+
+    console.log("📊 Total Visits (this browser, all days):", total);
+
 })();
 </script>
+
 
 </body>
 </html>
