@@ -201,6 +201,96 @@ a{color:#0d6efd;text-decoration:none;}
         background: rgba(255,255,255,0.25);
     }
 }
+
+/* ========================= */
+/* ===== Feedback Section ===== */
+/* ========================= */
+
+/* ===== Feedback Section ===== */
+
+/* ========================= */
+/* ===== Feedback Section ===== */
+/* ========================= */
+
+.feedback-form input,
+.feedback-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.feedback-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.feedback-form input:focus,
+.feedback-form textarea:focus {
+    outline: none;
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 2px rgba(13,110,253,0.15);
+}
+
+.feedback-form button {
+    margin-top: 12px;
+    background: #0d6efd;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.feedback-form button:hover {
+    background: #0b5ed7;
+}
+
+.feedback-form .status-msg {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #198754;
+}
+
+/* ===== Feedback List ===== */
+
+.feedback-items {
+    margin-top: 25px;
+}
+
+.feedback-card {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+}
+
+.feedback-card strong {
+    display: block;
+    color: #0d6efd;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.feedback-card p {
+    margin: 0;
+    font-size: 14px;
+    color: #374151;
+}
+
+.loading {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+
 </style>
 </head>
 
@@ -401,6 +491,44 @@ Facebook login integration project
 </section>
 
 </div>
+<div class="container">
+<section>
+  <h2>Feedback</h2>
+
+  <!-- Feedback Form -->
+  <form id="feedbackForm" class="feedback-form">
+    <ul style="padding-left:0; list-style:none;">
+      <li style="margin-bottom:10px;">
+        <input
+          id="name"
+          type="text"
+          placeholder="Your name (optional)">
+      </li>
+
+      <li>
+        <textarea
+          id="message"
+          placeholder="Write your feedback..."
+          required></textarea>
+      </li>
+    </ul>
+
+    <button type="submit">
+      <i class="fa fa-paper-plane"></i> Submit Feedback
+    </button>
+
+    <p id="status" class="status-msg"></p>
+  </form>
+
+  <!-- Feedback List -->
+  <div style='display:none;' id="feedbackList" class="feedback-items">
+    <div class="loading">Loading feedback...</div>
+  </div>
+</section>
+</div>
+
+
+
 
 
 <section class="social_media">
@@ -516,7 +644,9 @@ Facebook login integration project
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+  //const db = getFirestore(app);
+  // ✅ MUST be window.db
+  window.db = getFirestore(app);
   const counterRef = doc(db, "visits", "resume");
 
   // 🔒 Use your strong secret key
@@ -544,6 +674,60 @@ Facebook login integration project
 
   countVisitor();
   // listenVisitorCount();
+</script>
+<script type="module">
+  import {
+    collection,
+    addDoc,
+    getDocs,
+    query,
+    orderBy,
+    limit,
+    serverTimestamp
+  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  // Submit feedback
+  document.getElementById("feedbackForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value || "Anonymous";
+    const message = document.getElementById("message").value;
+
+    await addDoc(collection(db, "feedback"), {
+      name,
+      message,
+      createdAt: serverTimestamp()
+    });
+
+    document.getElementById("status").innerText = "Feedback submitted 👍";
+    e.target.reset();
+    loadFeedback();
+  });
+
+  async function loadFeedback() {
+    const list = document.getElementById("feedbackList");
+
+    const q = query(
+      collection(db, "feedback"),
+      orderBy("createdAt", "desc"),
+      limit(10)
+    );
+
+    const snapshot = await getDocs(q);
+    list.innerHTML = "";
+
+    snapshot.forEach(doc => {
+      const d = doc.data();
+     list.innerHTML += `
+  <div class="feedback-card">
+    <strong>${d.name}</strong>
+    <p>${d.message}</p>
+  </div>
+      `;
+    });
+  }
+
+  loadFeedback();
 </script>
 
 <!-- Show visitor count -->
