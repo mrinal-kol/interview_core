@@ -502,14 +502,7 @@ Facebook login integration project
 </footer>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-  import {
-    getFirestore,
-    doc,
-    getDoc,
-    setDoc,
-    updateDoc,
-    increment
-  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+  import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
   // 🔥 Firebase config
   const firebaseConfig = {
@@ -524,21 +517,25 @@ Facebook login integration project
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-
-  // Visitor counter reference
   const counterRef = doc(db, "visits", "resume");
+
+  // 🔒 Use your strong secret key
+  const SECRET_KEY = "f7k8N2mP9Vw1R5sX8Tq3B6L0yH4zD7gJ2nK5mR9tW1v4X7bZ0pQ3S6f8G5hJ2kL0mN3pR5tV7w9X1z";
 
   async function countVisitor() {
     try {
       const snap = await getDoc(counterRef);
 
       if (!snap.exists()) {
-        await setDoc(counterRef, { total: 1 });
+        await setDoc(counterRef, { total: 1, secret: SECRET_KEY });
         console.log("👀 Total Visitors:", 1);
       } else {
-        await updateDoc(counterRef, { total: increment(1) });
+        await updateDoc(counterRef, { total: increment(1), secret: SECRET_KEY });
         const updatedSnap = await getDoc(counterRef);
         console.log("👀 Total Visitors:", updatedSnap.data().total);
+
+        // Optional: show count on page
+        document.getElementById("visitorCount").innerText = updatedSnap.data().total;
       }
     } catch (err) {
       console.error("❌ Visitor counter error:", err);
@@ -547,6 +544,10 @@ Facebook login integration project
 
   countVisitor();
 </script>
+
+<!-- Show visitor count -->
+<!-- <div>Total Visitors: <span id="visitorCount">0</span></div> -->
+
 
 
 
