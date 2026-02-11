@@ -644,9 +644,9 @@ Facebook login integration project
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  //const db = getFirestore(app);
+  const db = getFirestore(app);
   // ✅ MUST be window.db
-  window.db = getFirestore(app);
+  window.db = db;
   const counterRef = doc(db, "visits", "resume");
 
   // 🔒 Use your strong secret key
@@ -654,22 +654,28 @@ Facebook login integration project
 
   async function countVisitor() {
     try {
-      const snap = await getDoc(counterRef);
+    const snap = await getDoc(counterRef);
 
-      if (!snap.exists()) {
-        await setDoc(counterRef, { total: 1, secret: SECRET_KEY });
-        console.log("👀 Total Visitors:", 1);
-      } else {
-        await updateDoc(counterRef, { total: increment(1), secret: SECRET_KEY });
-        const updatedSnap = await getDoc(counterRef);
-        console.log("👀 Total Visitors:", updatedSnap.data().total);
-
-        // Optional: show count on page
-        document.getElementById("visitorCount").innerText = updatedSnap.data().total;
-      }
-    } catch (err) {
-      console.error("❌ Visitor counter error:", err);
+    if (!snap.exists()) {
+      await setDoc(counterRef, { total: 1, secret: SECRET_KEY });
+      document.getElementById("visitorCount").innerText = 1;
+      return;
     }
+
+    // increment visitor
+    await updateDoc(counterRef, {
+      total: increment(1),
+      secret: SECRET_KEY
+    });
+
+    // fetch updated count
+    const updatedSnap = await getDoc(counterRef);
+    document.getElementById("visitorCount").innerText =
+      updatedSnap.data().total;
+
+  } catch (err) {
+    console.error("❌ Visitor counter error:", err);
+  }
   }
 
   countVisitor();
