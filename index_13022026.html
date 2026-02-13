@@ -629,11 +629,6 @@ Facebook login integration project
 © 2026 Mrinal Kanti Mandal | Senior Web Application Developer
 </footer>
 <script type="module">
-  //  localStorage.setItem("ownerName", "Mrinal");
-//     if (localStorage.getItem("ownerName") === "Mrinal") {
-//   console.log("Owner visit → not counted");
-//   //return;
-// }
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
   import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
@@ -659,13 +654,6 @@ Facebook login integration project
 
   async function countVisitor() {
     try {
-
-
-         // ✅ 2. skip if owner
-    if (localStorage.getItem("ownerName") === "Mrinal") {
-      console.log("Owner visit → not counted");
-      return;
-    }
     const snap = await getDoc(counterRef);
 
     if (!snap.exists()) {
@@ -692,7 +680,8 @@ Facebook login integration project
 
   countVisitor();
   // listenVisitorCount();
-
+</script>
+<script type="module">
   import {
     collection,
     addDoc,
@@ -744,7 +733,7 @@ Facebook login integration project
     });
   }
 
-  //loadFeedback();
+  loadFeedback();
 </script>
 
 <!-- Show visitor count -->
